@@ -75,16 +75,14 @@ finalScore(inning, 9) might return:
 
 function finalScore(inning, number) {
     let homeScore = 0;
-    for /*each*/ (let i = 0; i < number; i++) {
-        homeScore = homeScore + inning();
-    }
-
     let awayScore = 0;
     for /*each*/ (let i = 0; i < number; i++) {
+        homeScore = homeScore + inning();
         awayScore = awayScore + inning();
     }
 
     const object = {
+        Inning: number,
         Home: homeScore,
         Away: awayScore
     }
@@ -115,9 +113,11 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(getInningScore, inning, innings) {
-    getInningScore();
-
+function scoreboard(finalScore, inning, innings) {
+    const gameScores = [];
+    for /*each*/ (let i = 0; i < innings; i++) {
+        gameScores.push(finalScore(inning, i + 1));
+    }
+    return gameScores
 }
-
-console.log(scoreboard(finalScore));
+console.log(scoreboard(finalScore, inning, 9));
