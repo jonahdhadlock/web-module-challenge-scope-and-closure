@@ -13,9 +13,9 @@
  * Example of usage of this higher-order function:
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
-*/
+ */
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+    return callback(stringList[0])
 }
 
 // ⭐️ Example Challenge END ⭐️
@@ -32,14 +32,14 @@ function processFirstItem(stringList, callback) {
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
-*/
+ */
 
 // counter1 code
 function counterMaker() {
-  let count = 0;
-  return function counter() {
-   return count++;
-  }
+    let count = 0;
+    return function counter() {
+        return count++;
+    }
 }
 
 const counter1 = counterMaker();
@@ -48,7 +48,7 @@ const counter1 = counterMaker();
 let count = 0;
 
 function counter2() {
-  return count++;
+    return count++;
 }
 
 
@@ -56,12 +56,9 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning() {
+    return Math.round(Math.random() * 2);
 }
-
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
@@ -74,13 +71,28 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
-*/ 
+*/
 
-function finalScore(/*code Here*/){
+function finalScore(inning, number) {
+    let homeScore = 0;
+    for /*each*/ (let i = 0; i < number; i++) {
+        homeScore = homeScore + inning();
+    }
 
-  /*Code Here*/
+    let awayScore = 0;
+    for /*each*/ (let i = 0; i < number; i++) {
+        awayScore = awayScore + inning();
+    }
+
+    const object = {
+        Home: homeScore,
+        Away: awayScore
+    }
+    return object;
 
 }
+
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -103,8 +115,9 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, innings) {
+    getInningScore();
+
 }
 
-
+console.log(scoreboard(finalScore));
