@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+Closure is the idea of a function reaching outside its scope to find a variable that is referenced from within in that is housed outside of it.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +64,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+Closure is used when the newRoll const is referencing outisde variables like dansRoll and zoesRoll.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+The phrase "Dan rolled a" is the same every time; the actual number rolled changes due to the Math.random.
+c. What is the lexical scope of `newRoll`?
+block scope.
 
 ### Task 2c - Exit Ticket
 
