@@ -82,7 +82,6 @@ function finalScore(inning, number) {
     }
 
     const object = {
-        Inning: number,
         Home: homeScore,
         Away: awayScore
     }
@@ -116,7 +115,9 @@ Final Score: awayTeam - homeTeam */
 function scoreboard(finalScore, inning, innings) {
     const gameScores = [];
     for /*each*/ (let i = 0; i < innings; i++) {
-        gameScores.push(finalScore(inning, i + 1));
+        const inningScores = finalScore(inning, i + 1);
+        inningScores.Inning = i + 1;
+        gameScores.push(inningScores);
     }
     return gameScores
 }
