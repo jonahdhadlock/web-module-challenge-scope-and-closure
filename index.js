@@ -4,12 +4,11 @@
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter1 does not use closure; counter2 does.
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter2 uses a closure; it references a variable that is without of the function.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- * 
- *
+ *counter1 keeps track of the previous runs; the variable stores that memory of the funtion. counter2 does not do this and returns the same result every time as if it never did it before.
  */
 
 // counter1 code
